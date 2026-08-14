@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  doc-page:not(:defined) { visibility: hidden; }
+  .r-page { font-family: var(--font-body), Inter, system-ui, sans-serif; }
+  .r-bullets { margin: 0; padding-left: 13pt; }
+  .r-bullets li { margin-bottom: 2pt; }
+  .r-bullets li::marker { color: #9184d9; }
+  @media print { .r-print-bar { display: none !important; } }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+<div class="r-print-bar" style="position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 20px;background:#161826;border-bottom:1px solid rgba(233,233,237,.12);font-family:'JetBrains Mono',monospace;font-size:12.5px">
+  <a href="Home.dc.html" style="color:#9184d9;text-decoration:none">← back to site</a>
+  <button onClick="{{ onPrint }}" style="font:inherit;cursor:pointer;padding:7px 14px;border-radius:6px;border:1px solid rgba(145,132,217,.55);background:rgba(145,132,217,.1);color:#e9e9ed">Download PDF ↓</button>
+</div>
+
+<doc-page size="letter">
+  <section class="page r-page" style="padding:0.5in 0.62in;color:#1b1b22;background:#fff;font-size:10pt;line-height:1.34;display:flex;flex-direction:column;gap:11pt">
+
+    <header style="border-bottom:1.5pt solid #9184d9;padding-bottom:7pt">
+      <h1 style="font-size:25pt;line-height:1;letter-spacing:.02em;margin:0 0 5pt;font-weight:600;color:#111116">EITAN GONENSKY</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:5pt 9pt;font-size:8.8pt;color:#4a4a55;font-family:'JetBrains Mono',monospace">
+        <span>Rogers, AR 72756</span><span style="color:#9184d9">|</span>
+        <span>818-383-6882</span><span style="color:#9184d9">|</span>
+        <span>eitan.gonensky@gmail.com</span><span style="color:#9184d9">|</span>
+        <span>linkedin.com/in/eitan-gonensky</span><span style="color:#9184d9">|</span>
+        <span>github.com/EiGeGo</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Education</h2>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline">
+        <div style="font-weight:600;color:#111116">University of Arkansas — Honors College Undergraduate</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">Expected May 2029</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>B.S. Cybersecurity and B.S. Applied Mathematics</li>
+        <li>GPA: 4.0</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Research Experience</h2>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline">
+        <div style="font-weight:600;color:#111116">NSF Research Experience for Undergraduates (REU) Program</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">May 2026 – July 2026</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>Worked with Python/TShark to convert raw power grid network traffic into .csv files that agents can access and read</li>
+        <li>Designed a multi-agent AI system to detect and report potential cyberattacks and recommend next validation steps</li>
+        <li>Presented poster at the REU closing symposium, explaining the system's design and detection results to faculty and industry sponsors</li>
+      </ul>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline;margin-top:6pt">
+        <div style="font-weight:600;color:#111116">Graph Theory Research with Dr. Warren Shull</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">May 2026 – July 2026</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>Investigated spanning-tree structure and conditions in chair-free graphs</li>
+        <li>Partnered with the research team to build contradiction-based edge-exchange proofs</li>
+        <li>Used adversarial case analysis to find and eliminate configurations that would break the arguments</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Projects</h2>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline">
+        <div style="font-weight:600;color:#111116">OpenAI Build Week: Human-in-the-Loop Network Security Agent</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">July 2026</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>Co-developed a multi-agent system that lets a network-security agent ask trusted users for context before flagging traffic as malicious</li>
+        <li>Designed the interaction flow for collecting targeted human responses and converting them into a structured allow-or-drop decision returned to the network agent</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Leadership Experience</h2>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline">
+        <div style="font-weight:600;color:#111116">Haas Hall Academy Computer Science Club — President</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">August 2021 – May 2025</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>Led a team of 9 students in assigning engaging materials, practice problems, and programming challenges</li>
+        <li>Organized and administered weekly meetings and club fundraising events</li>
+        <li>Raised over $1,000 for collaborative club events and competitions</li>
+        <li>Recruited new members and enhanced existing members' programming skills</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Work History</h2>
+      <div style="display:flex;justify-content:space-between;gap:14pt;align-items:baseline">
+        <div style="font-weight:600;color:#111116">Professional Business Systems Inc. — Warehouse Associate</div>
+        <div style="font-size:9pt;font-style:italic;color:#55555f;white-space:nowrap">June 2023 – May 2024</div>
+      </div>
+      <ul class="r-bullets" style="margin-top:3pt">
+        <li>Received supplies and verified them against receiving sheets</li>
+        <li>Organized supplies in assigned bins, maintaining a well-organized and tidy warehouse</li>
+        <li>Processed an average of 100 supply orders weekly with 100% accuracy</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Honors &amp; Awards</h2>
+      <ul class="r-bullets">
+        <li>University of Arkansas Chancellor's List</li>
+        <li>Charles D. Brock Scholarship</li>
+        <li>Honors College Study Abroad Grant — CIS Abroad Semester in Seoul, Sogang University, Fall 2026</li>
+      </ul>
+    </section>
+
+    <section style="display:grid;grid-template-columns:1fr 1fr;gap:11pt">
+      <div>
+        <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Skills</h2>
+        <div>Java, Python, C++, OpenAI Agents SDK, TShark/Wireshark, LaTeX, Microsoft Office, E-Automate ERP</div>
+      </div>
+      <div>
+        <h2 style="font-size:9pt;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#9184d9;margin:0 0 5pt;padding-bottom:2.5pt;border-bottom:.75pt solid #dcdce3">Campus Involvement</h2>
+        <ul class="r-bullets">
+          <li>CyberHogs Cybersecurity Club — Member</li>
+          <li>Arkansec Cybersecurity Club — Member</li>
+          <li>Phi Mu Epsilon Math Club — Member</li>
+        </ul>
+      </div>
+    </section>
+
+  </section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return { onPrint: () => window.print() };
+  }
+}
+</script>
+</body>
+</html>

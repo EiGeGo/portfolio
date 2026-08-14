@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-300); }
+  @keyframes eg-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 860px) {
+    [data-m~="entry-card"] { grid-template-columns: 1fr !important; }
+    [data-m~="entry-media"] { min-height: 200px !important; }
+    [data-m~="entry-overlay"] { background: linear-gradient(to bottom, transparent 30%, rgba(22,24,38,.9) 100%) !important; }
+    [data-m~="entry-body"] { padding: 22px 22px 26px !important; }
+    [data-m~="contact-grid"] { grid-template-columns: 1fr !important; gap: 26px !important; }
+  }
+  @media (max-width: 700px) {
+    [data-m~="gutter"] { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-m~="nav-links"] { gap: 15px !important; font-size: 12px !important; }
+    [data-m~="hero"] { padding-top: 56px !important; padding-bottom: 48px !important; gap: 30px !important; flex-direction: column-reverse !important; align-items: flex-start !important; }
+    [data-m~="hero-photo"] { width: 172px !important; height: 215px !important; }
+    [data-m="h1"] { font-size: 40px !important; }
+    [data-m="page-h1"] { font-size: 34px !important; }
+    [data-m="entry-h1"] { font-size: 30px !important; }
+    [data-m~="card"] { grid-template-columns: 1fr !important; gap: 14px !important; }
+    [data-m~="card-img"] { height: 168px !important; }
+    [data-m~="card-body"] { padding: 0 2px 4px !important; }
+    [data-m~="hero-meta"] { flex-wrap: wrap; }
+    [data-m~="section-pad"] { padding-top: 60px !important; padding-bottom: 80px !important; }
+    [data-m~="entry-figure"] img { max-height: 260px !important; }
+  }
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;background:var(--color-bg);overflow-x:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(233,233,237,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(233,233,237,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(120% 70% at 20% 0%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(120% 70% at 20% 0%,#000 0%,transparent 70%)"></div>
+  <div style="position:absolute;top:-260px;left:-180px;width:820px;height:560px;pointer-events:none;background:radial-gradient(closest-side,rgba(145,132,217,.16),transparent 75%)"></div>
+
+  <nav style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,#161826 76%,transparent);border-bottom:1px solid color-mix(in srgb,#e9e9ed 8%,transparent)">
+    <div data-m="gutter" style="max-width:1000px;margin:0 auto;padding:15px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="Home.dc.html" style="font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:var(--color-text);letter-spacing:.08em;display:flex;align-items:center;gap:5px">
+        <span style="color:var(--color-accent)">[</span>EG<span style="color:var(--color-accent)">]</span>
+      </a>
+      <div data-m="nav-links" style="display:flex;align-items:center;gap:26px;font-family:'JetBrains Mono',monospace;font-size:13px">
+        <a href="Home.dc.html" style="color:color-mix(in srgb,#e9e9ed 62%,transparent)" style-hover="color:var(--color-text)">home</a>
+        <a href="Research.dc.html" style="color:color-mix(in srgb,#e9e9ed 62%,transparent)" style-hover="color:var(--color-text)">research</a>
+        <a href="Projects.dc.html" style="color:var(--color-accent)">projects</a>
+        <a href="Contact.dc.html" style="color:color-mix(in srgb,#e9e9ed 62%,transparent)" style-hover="color:var(--color-text)">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main data-m="gutter section-pad" style="position:relative;max-width:1000px;margin:0 auto;padding:80px 32px 120px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px">Projects</div>
+    <h1 data-m="page-h1" style="font-size:46px;line-height:1.05;letter-spacing:-.03em;margin:0 0 16px;font-weight:500">Projects</h1>
+    <p style="font-size:16px;line-height:1.68;color:color-mix(in srgb,#e9e9ed 68%,transparent);max-width:58ch;margin:0 0 56px">Things I built, mostly under a deadline and mostly with other people. Each one is written up the way I would hand it off: the problem, the design, my part in it, and the limits.</p>
+
+    <div style="display:grid;gap:22px">
+      <sc-for list="{{ entries }}" as="e" hint-placeholder-count="1">
+        <a href="{{ e.href }}" style="display:block;border:1px solid color-mix(in srgb,#e9e9ed 10%,transparent);border-radius:14px;overflow:hidden;background:color-mix(in srgb,#232532 45%,transparent);color:var(--color-text);transition:border-color .18s,background .18s,transform .18s;animation:eg-rise .5s ease both" style-hover="border-color:color-mix(in srgb,#9184d9 55%,transparent);background:color-mix(in srgb,#232532 85%,transparent);transform:translateY(-3px)">
+          <div data-m="entry-card" style="display:grid;grid-template-columns:320px 1fr;gap:0;align-items:stretch">
+            <div data-m="entry-media" style="position:relative;background:#0f1119;min-height:220px">
+              <sc-if value="{{ e.image }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ e.image }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+              </sc-if>
+              <div data-m="entry-overlay" style="position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(22,24,38,.85) 100%)"></div>
+            </div>
+            <div data-m="entry-body" style="padding:28px 30px;display:flex;flex-direction:column;justify-content:center;min-width:0">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px;white-space:nowrap">{{ e.date }}</div>
+              <div style="font-size:27px;line-height:1.18;letter-spacing:-.02em;margin-bottom:12px">{{ e.title }}</div>
+              <div style="font-size:14.5px;line-height:1.65;color:color-mix(in srgb,#e9e9ed 65%,transparent);margin-bottom:18px">{{ e.summary }}</div>
+              <div style="display:flex;flex-wrap:wrap;gap:7px">
+                <sc-for list="{{ e.tagList }}" as="tg" hint-placeholder-count="3">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:3px 9px;border-radius:4px;white-space:nowrap;border:1px solid color-mix(in srgb,#9184d9 32%,transparent);color:var(--color-accent-300)">{{ tg }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </main>
+
+  <footer style="position:relative;border-top:1px solid color-mix(in srgb,#e9e9ed 8%,transparent)">
+    <div data-m="gutter" style="max-width:1000px;margin:0 auto;padding:26px 32px;display:flex;align-items:center;justify-content:flex-end;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;gap:20px;font-family:'JetBrains Mono',monospace;font-size:12.5px">
+        <a href="https://www.linkedin.com/in/eitan-gonensky-003340350/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+        <a href="https://github.com/EiGeGo" target="_blank" rel="noreferrer noopener">GitHub</a>
+        <a href="Contact.dc.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { entries: [] };
+  async componentDidMount() {
+    const site = await import('./site.js');
+    const entries = await site.loadAll('projects');
+    this.setState({ entries: entries.map(e => ({ ...e, date: site.formatDate(e.publishedAt) })) });
+  }
+  renderVals() { return { entries: this.state.entries }; }
+}
+</script>
+</body>
+</html>
